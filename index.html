@@ -723,4 +723,675 @@ button.small {
 
 <header>
   <div class="brand">
-    <div class="brand-
+    <div class="brand-mark">🚀</div>
+    Aprende<span style="color:#ff7eb6">+</span>
+  </div>
+  <div class="tag">🌈 APRENDER É UMA AVENTURA!</div>
+</header>
+
+<main>
+  <!-- BANNER PRINCIPAL COM MASCOTE FOFO EM VETOR -->
+  <section class="hero">
+    <div>
+      <div class="hero-badge">✨ SEU CANTINHO MÁGICO DE ESTUDOS</div>
+      <h1 id="welcomeTitle">Oi, explorador(a)! Vamos brincar de aprender? 👋</h1>
+      <p>Matemática divertida no seu ritmo, com desafios feitos para você!</p>
+      <div class="actions" style="margin-top:20px">
+        <button class="hero-btn" onclick="startDiagnostic()">🎮 Começar desafio</button>
+        <button class="hero-soft" onclick="goTo('courses')">📚 Explorar matérias</button>
+      </div>
+    </div>
+
+    <div class="hero-mascot-stage" aria-label="Mascote Estrelinha Luna">
+      <!-- Mascote Estrelinha Kawaii em SVG -->
+      <svg width="105" height="105" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="54" fill="#FFF6D6" fill-opacity="0.35"/>
+        <path d="M60 12L73.5 39.5L103.8 43.9L81.9 65.2L87.1 95.4L60 81.1L32.9 95.4L38.1 65.2L16.2 43.9L46.5 39.5L60 12Z" fill="#FFD452" stroke="#F5A623" stroke-width="4" stroke-linejoin="round"/>
+        <!-- Olhinhos -->
+        <circle cx="48" cy="56" r="5" fill="#2F2A4A"/>
+        <circle cx="72" cy="56" r="5" fill="#2F2A4A"/>
+        <circle cx="49.5" cy="54.5" r="1.8" fill="#FFFFFF"/>
+        <circle cx="73.5" cy="54.5" r="1.8" fill="#FFFFFF"/>
+        <!-- Bochechas -->
+        <ellipse cx="41" cy="64" rx="5.5" ry="3.5" fill="#FF8EC7" fill-opacity="0.75"/>
+        <ellipse cx="79" cy="64" rx="5.5" ry="3.5" fill="#FF8EC7" fill-opacity="0.75"/>
+        <!-- Sorriso -->
+        <path d="M53 65C55 69 65 69 67 65" stroke="#2F2A4A" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Chapéu de formatura fofo -->
+        <path d="M42 26L60 18L78 26L60 34L42 26Z" fill="#7C5DFA"/>
+        <path d="M74 28V37" stroke="#FF7EB6" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="speech-bubble">
+        Oi! Eu sou a <b>Luna</b> 🌟<br>Pronto(a) para ganhar estrelas hoje?
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <div class="maincol">
+
+      <!-- CADASTRO -->
+      <section class="card" id="profileCard">
+        <div class="sectionhead">
+          <div class="section-icon" style="background:#ffeaf4">🎒</div>
+          <div>
+            <h2>Seu crachá de aventureiro</h2>
+            <p class="sub" style="margin:0">Coloque seu nome para personalizar sua jornada.</p>
+          </div>
+        </div>
+        <div class="rowfields">
+          <div class="field">
+            <label for="studentName">Como você quer ser chamado(a)?</label>
+            <input id="studentName" placeholder="Ex.: Lucas">
+          </div>
+          <div class="field">
+            <label for="studentAge">Sua idade (opcional)</label>
+            <input id="studentAge" type="number" min="5" max="99" placeholder="Ex.: 10">
+          </div>
+        </div>
+        <div class="actions">
+          <button onclick="saveProfile()">💜 Salvar meu crachá</button>
+          <button class="soft" onclick="clearProfile()">Limpar</button>
+        </div>
+        <p id="profileMsg" class="sub" style="margin:10px 0 0; color: var(--purple); font-weight: 800;"></p>
+      </section>
+
+      <!-- PAINEL E TURMINHA -->
+      <section class="card">
+        <div class="sectionhead">
+          <div class="section-icon" style="background:#fff4d6">🏆</div>
+          <div>
+            <h2>Minhas conquistas</h2>
+            <p class="sub" style="margin:0">Cada resposta certa ilumina mais o seu caminho!</p>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><b id="done">0</b><small>✏️ Questões</small></div>
+          <div class="stat"><b id="hits">0</b><small>⭐ Acertos</small></div>
+          <div class="stat"><b id="rate">—</b><small>🎯 Pontuação</small></div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:800;margin-top:16px">
+          <span>🌱 Barra de energia</span>
+          <span id="progressText" style="color:var(--purple)">Comece quando quiser!</span>
+        </div>
+        <div class="bar"><div id="progressBar"></div></div>
+
+        <!-- NOVA TURMINHA EM VETOR (SEM CAPIVARAS!) -->
+        <div class="friends-box">
+          <div style="font-weight:900; font-size:14px; color:var(--purple);">✨ Conheça seus amigos de estudo</div>
+          <div class="friends-grid">
+            <div class="friend-card">
+              <!-- Luna Estrelinha -->
+              <svg viewBox="0 0 80 80"><path d="M40 8L49 26L69 29L54.5 43L58 63L40 53.5L22 63L25.5 43L11 29L31 26L40 8Z" fill="#FFD452" stroke="#F5A623" stroke-width="3" stroke-linejoin="round"/><circle cx="33" cy="38" r="3" fill="#2F2A4A"/><circle cx="47" cy="38" r="3" fill="#2F2A4A"/><path d="M36 44C38 47 42 47 44 44" stroke="#2F2A4A" stroke-width="2.5" stroke-linecap="round"/></svg>
+              <b>Luna</b>
+              <small>Guia das estrelas</small>
+            </div>
+            <div class="friend-card">
+              <!-- Theo Ursinho -->
+              <svg viewBox="0 0 80 80"><circle cx="22" cy="24" r="10" fill="#D99B66"/><circle cx="58" cy="24" r="10" fill="#D99B66"/><circle cx="40" cy="43" r="24" fill="#E8B07D"/><ellipse cx="40" cy="48" rx="10" ry="8" fill="#FFF2E2"/><circle cx="32" cy="39" r="3" fill="#2F2A4A"/><circle cx="48" cy="39" r="3" fill="#2F2A4A"/><circle cx="40" cy="45" r="3" fill="#5C3A21"/><path d="M36 50C38 52 42 52 44 50" stroke="#5C3A21" stroke-width="2.5" stroke-linecap="round"/></svg>
+              <b>Theo</b>
+              <small>Mestre dos números</small>
+            </div>
+            <div class="friend-card">
+              <!-- Pipoca Nuvem -->
+              <svg viewBox="0 0 80 80"><path d="M24 54H58C64.6 54 70 48.6 70 42C70 35.8 65.3 30.7 59.3 30.1C57.1 21.4 49.3 15 40 15C29.5 15 21 23.1 20.1 33.4C14.4 34.7 10 39.8 10 46C10 50.4 13.6 54 18 54H24Z" fill="#A6E1FF" stroke="#6EC6FF" stroke-width="3"/><circle cx="33" cy="41" r="3" fill="#2F2A4A"/><circle cx="47" cy="41" r="3" fill="#2F2A4A"/><path d="M37 46C39 48.5 41 48.5 43 46" stroke="#2F2A4A" stroke-width="2.5" stroke-linecap="round"/></svg>
+              <b>Pipoca</b>
+              <small>Dicas mágicas</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AVALIAÇÃO DIAGNÓSTICA -->
+      <section class="card" id="diagnostic">
+        <div class="sectionhead">
+          <div class="section-icon" style="background:#e6f7ff">🧩</div>
+          <div>
+            <h2>Desafio das estrelas</h2>
+            <p class="sub" style="margin:0">Responda com calma para descobrirmos seus superpoderes!</p>
+          </div>
+        </div>
+
+        <div id="quizIntro">
+          <div class="notice">💡 São 8 perguntinhas rápidas! No final, a Luna prepara um treino especial só com o que você quiser melhorar.</div>
+          <div class="actions" style="margin-top:14px">
+            <button onclick="startDiagnostic()">🚀 Iniciar desafio agora</button>
+          </div>
+        </div>
+
+        <div id="quizArea" class="hidden quizbox">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+            <span class="pill" id="qTopic">Matemática</span>
+            <span class="sub" id="qCount" style="margin:0;font-weight:800">Questão 1</span>
+          </div>
+          <div class="bar"><div id="quizBar"></div></div>
+          <div class="question" id="qText"></div>
+          <div class="answers" id="answers"></div>
+          <div id="feedback"></div>
+          <div class="actions" style="justify-content:flex-end;margin-top:15px">
+            <button id="nextBtn" onclick="nextQuestion()" disabled>Próxima ➜</button>
+          </div>
+        </div>
+
+        <div id="quizResult" class="hidden quizbox">
+          <h2>🎉 Parabéns por completar!</h2>
+          <p id="resultSummary" class="sub"></p>
+          <div id="recommendations" style="margin-bottom:16px"></div>
+          <div class="actions">
+            <button onclick="startPractice()">🎯 Treinar assuntos recomendados</button>
+            <button class="soft" onclick="startDiagnostic()">🔄 Jogar novamente</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- BIBLIOTECA CLICÁVEL -->
+      <section class="card" id="courses">
+        <div class="sectionhead">
+          <div class="section-icon" style="background:#e4fbf2">📚</div>
+          <div>
+            <h2>Biblioteca de aventuras</h2>
+            <p class="sub" style="margin:0">Clique em qualquer tema abaixo para praticar agora mesmo!</p>
+          </div>
+        </div>
+        <div class="coursegrid">
+          <button class="course" onclick="openTopicPractice('basic')">
+            <span class="emoji">➕</span>
+            <b>Operações básicas</b>
+            <small>Somar, subtrair, multiplicar e dividir</small>
+          </button>
+          <button class="course" onclick="openTopicPractice('frac')">
+            <span class="emoji">🍕</span>
+            <b>Frações</b>
+            <small>Fatias de pizza e partes iguais</small>
+          </button>
+          <button class="course" onclick="openTopicPractice('eq')">
+            <span class="emoji">🔮</span>
+            <b>Equações</b>
+            <small>Descobrindo o mistério do X</small>
+          </button>
+          <button class="course" onclick="openTopicPractice('pct')">
+            <span class="emoji">💯</span>
+            <b>Porcentagem</b>
+            <small>Descontos e partes de 100</small>
+          </button>
+          <button class="course" onclick="openTopicPractice('dec')">
+            <span class="emoji">🪙</span>
+            <b>Decimais</b>
+            <small>Números com vírgula e moedinhas</small>
+          </button>
+          <button class="course" onclick="openTopicPractice('geo')">
+            <span class="emoji">📐</span>
+            <b>Geometria</b>
+            <small>Formas, lados e desenhos</small>
+          </button>
+        </div>
+      </section>
+
+      <!-- TREINO PERSONALIZADO -->
+      <section class="card hidden" id="practiceCard">
+        <div class="sectionhead">
+          <div class="section-icon" style="background:#fff0f7">🎯</div>
+          <div>
+            <h2>Treino divertido</h2>
+            <p class="sub" style="margin:0">Pratique quantas vezes quiser!</p>
+          </div>
+        </div>
+        <div id="practiceTopicSwitch" class="actions" style="margin-bottom:10px"></div>
+        <div id="practiceQuestion" class="quizbox"></div>
+        <div id="practiceFeedback"></div>
+        <div class="actions" style="margin-top:14px">
+          <button id="practiceNext" class="hidden" onclick="nextPractice()">Próximo exercício ➜</button>
+          <button class="soft" onclick="goTo('courses')">📚 Trocar matéria</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- COLUNA LATERAL -->
+    <aside class="sidecol">
+      <section class="card">
+        <div class="sectionhead">
+          <div class="section-icon">🗺️</div>
+          <h2>Mapa de estrelas</h2>
+        </div>
+        <p class="sub">Veja como você está indo em cada assunto:</p>
+        <div class="topic"><span>➕ Operações</span><span class="pill" id="basicStatus">Pendente</span></div>
+        <div class="topic"><span>🍕 Frações</span><span class="pill" id="fracStatus">Pendente</span></div>
+        <div class="topic"><span>🔮 Equações</span><span class="pill" id="eqStatus">Pendente</span></div>
+        <div class="topic"><span>💯 Porcentagem</span><span class="pill" id="pctStatus">Pendente</span></div>
+        <div class="topic"><span>🪙 Decimais</span><span class="pill" id="decStatus">Pendente</span></div>
+        <div class="topic"><span>📐 Geometria</span><span class="pill" id="geoStatus">Pendente</span></div>
+      </section>
+
+      <section class="card">
+        <div class="sectionhead">
+          <div class="section-icon" style="background:#fff4d6">🕒</div>
+          <h2>Histórico</h2>
+        </div>
+        <p class="sub">Suas partidas salvas neste navegador:</p>
+        <div id="historyList" class="empty">Ainda não há partidas. Faça seu primeiro desafio! 🌱</div>
+      </section>
+
+      <section class="card">
+        <div class="sectionhead">
+          <div class="section-icon" style="background:#ffeaf4">🌟</div>
+          <h2>Recado da Luna</h2>
+        </div>
+        <p class="sub" id="systemTip">Oi! Eu sou a Luna, sua amiga de estudos! Complete o desafio para receber dicas feitas para você. ✨</p>
+        <div class="notice">🤖 <b>Dica:</b> Clique no chat no canto da tela se quiser tirar dúvidas de matemática comigo!</div>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<div class="footer">Aprende+ • Feito com carinho para aprender brincando ✨</div>
+
+<!-- CHAT DA LUNA COM CONFIGURAÇÃO DE API E MODO TUTOR INTELIGENTE -->
+<div id="luna-chat" aria-label="Conversa com a Luna">
+  <div id="luna-head">
+    <span>🌟 LUNA · sua tutora IA</span>
+    <div class="head-actions">
+      <button id="luna-gear" class="icon-btn" title="Configurar chave da IA" aria-label="Configurar IA">⚙️</button>
+      <button id="luna-toggle" class="icon-btn" aria-label="Minimizar conversa">−</button>
+    </div>
+  </div>
+
+  <div id="luna-settings" class="hidden">
+    <b>🔑 Conectar ao Gemini (opcional):</b>
+    <input id="apiKeyInput" type="password" placeholder="Cole sua chave AIzaSy... aqui">
+    <div style="display:flex;gap:6px">
+      <button class="small" type="button" onclick="saveApiKey()">Salvar chave</button>
+      <button class="small soft" type="button" onclick="toggleSettings()">Fechar</button>
+    </div>
+    <small style="color:var(--muted);display:block;margin-top:5px">Sem chave? Tudo bem! A Luna responde usando o tutor interno de matemática.</small>
+  </div>
+
+  <div id="luna-panel">
+    <div id="luna-body">
+      <div class="luna-msg luna-bot">Oi! Eu sou a Luna! 🌟 Me pergunte sobre Matemática (ex: "como calcular fração?", "quanto é 15% de 200?" ou peça um exercício!).</div>
+    </div>
+    <form id="luna-form">
+      <input id="luna-input" placeholder="Pergunte algo para a Luna..." maxlength="1500" required>
+      <button id="luna-send" type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<script>
+const diagnostic = [
+  { topic: 'basic', label: 'Operações básicas', q: 'Quanto é 7 × 8?', opts: ['54', '56', '64', '48'], a: 1, explain: '7 × 8 = 56! Pense em 7 grupinhos com 8 estrelas em cada.' },
+  { topic: 'frac', label: 'Frações', q: 'Quanto é a metade de 3/4?', opts: ['3/8', '2/4', '3/2', '1/4'], a: 0, explain: 'Para achar a metade, dividimos 3/4 por 2 (multiplicando o denominador por 2): dá 3/8!' },
+  { topic: 'basic', label: 'Operações básicas', q: 'Qual é o resultado de 36 ÷ 6?', opts: ['5', '7', '6', '8'], a: 2, explain: '36 ÷ 6 = 6, porque 6 × 6 = 36!' },
+  { topic: 'eq', label: 'Equações', q: 'Se x + 5 = 12, quanto vale o misterioso x?', opts: ['5', '6', '7', '8'], a: 2, explain: 'Tiramos 5 dos dois lados: x = 12 − 5 = 7!' },
+  { topic: 'frac', label: 'Frações', q: 'Qual fração vale o mesmo que 1/2?', opts: ['2/3', '2/4', '3/4', '1/3'], a: 1, explain: '1/2 e 2/4 são equivalentes: duas fatias de 4 são exatamente metade da pizza!' },
+  { topic: 'pct', label: 'Porcentagem', q: 'Quanto é 10% de 80?', opts: ['8', '10', '18', '80'], a: 0, explain: '10% é a décima parte. Basta dividir 80 por 10, que dá 8!' },
+  { topic: 'dec', label: 'Decimais', q: 'Quanto é 2,5 + 1,5?', opts: ['3', '3,5', '4', '4,5'], a: 2, explain: '2,5 + 1,5 = 4! Duas metades (0,5 + 0,5) formam 1 inteiro.' },
+  { topic: 'geo', label: 'Geometria', q: 'Quantos lados tem um hexágono?', opts: ['5', '6', '7', '8'], a: 1, explain: 'Hexa significa seis! Um hexágono tem 6 lados, igual aos favos das abelhas.' }
+];
+
+const practice = {
+  basic: [
+    ['Quanto é 9 × 6?', ['45', '54', '56'], 1, '9 × 6 = 54! Você pode pensar em 10 × 6 (60) e tirar 6.'],
+    ['Quanto é 42 ÷ 7?', ['6', '7', '8'], 0, '42 dividido por 7 é 6, porque 7 × 6 = 42!'],
+    ['Quanto é 25 + 38?', ['53', '63', '73'], 1, '20 + 30 = 50, e 5 + 8 = 13. Somando tudo dá 63!']
+  ],
+  frac: [
+    ['Quanto é 1/2 + 1/4?', ['2/6', '3/4', '1/4'], 1, '1/2 equivale a 2/4. Somando 2/4 + 1/4 temos 3/4!'],
+    ['Se você comeu 1/3 de um bolo, quanto sobrou?', ['2/3', '1/2', '3/3'], 0, 'O bolo inteiro tem 3/3. Tirando 1/3, sobram 2/3!']
+  ],
+  eq: [
+    ['Se x − 3 = 8, quanto vale x?', ['5', '11', '24'], 1, 'Passamos o 3 somando: x = 8 + 3 = 11!'],
+    ['Se 2 × x = 14, quanto vale x?', ['6', '7', '12'], 1, 'Qual número multiplicado por 2 dá 14? É o 7!']
+  ],
+  pct: [
+    ['Quanto é 20% de 50?', ['5', '10', '20'], 1, '10% de 50 é 5. Como 20% é o dobro, dá 10!'],
+    ['Quanto é 50% de 46?', ['23', '26', '46'], 0, '50% é sempre a metade! A metade de 46 é 23.']
+  ],
+  dec: [
+    ['Quanto é 3,2 + 0,8?', ['3,8', '4', '4,2'], 1, '0,2 + 0,8 = 1,0. Somando com 3, temos 4!'],
+    ['Quanto é 5,0 − 1,5?', ['3,5', '4,5', '2,5'], 0, 'De 5 reais tirando 1 real e 50 centavos, sobram 3,50!']
+  ],
+  geo: [
+    ['Quantos lados tem um triângulo?', ['3', '4', '5'], 0, 'Tri significa três! Um triângulo tem 3 lados.'],
+    ['Qual forma tem 4 lados iguais e 4 cantos retos?', ['Quadrado', 'Círculo', 'Triângulo'], 0, 'O quadrado tem todos os 4 lados do mesmo tamanho!']
+  ]
+};
+
+let index = 0, answers = [], selected = null, practiceTopic = 'basic', practiceIndex = 0, profile = { name: '', age: '' };
+const topicNames = { basic: 'Operações básicas', frac: 'Frações', eq: 'Equações', pct: 'Porcentagem', dec: 'Decimais', geo: 'Geometria' };
+
+function goTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function saveProfile() {
+  const name = document.getElementById('studentName').value.trim();
+  if (!name) {
+    document.getElementById('profileMsg').textContent = 'Digite seu nome para criar o crachá! ✏️';
+    return;
+  }
+  profile = { name, age: document.getElementById('studentAge').value };
+  localStorage.setItem('aprendeProfile', JSON.stringify(profile));
+  updateWelcome();
+  document.getElementById('profileMsg').textContent = `Crachá salvo! Bem-vindo(a), ${name}! 🎉`;
+}
+
+function clearProfile() {
+  profile = { name: '', age: '' };
+  localStorage.removeItem('aprendeProfile');
+  document.getElementById('studentName').value = '';
+  document.getElementById('studentAge').value = '';
+  updateWelcome();
+  document.getElementById('profileMsg').textContent = 'Crachá limpo!';
+}
+
+function updateWelcome() {
+  document.getElementById('welcomeTitle').textContent = profile.name
+    ? `Oi, ${profile.name}! Vamos brincar de aprender? 👋`
+    : 'Oi, explorador(a)! Vamos brincar de aprender? 👋';
+}
+
+function loadProfile() {
+  try { profile = JSON.parse(localStorage.getItem('aprendeProfile') || '{}'); } catch (e) { profile = {}; }
+  document.getElementById('studentName').value = profile.name || '';
+  document.getElementById('studentAge').value = profile.age || '';
+  updateWelcome();
+  renderHistory();
+}
+
+function startDiagnostic() {
+  index = 0; answers = []; selected = null;
+  document.getElementById('quizIntro').classList.add('hidden');
+  document.getElementById('quizResult').classList.add('hidden');
+  document.getElementById('quizArea').classList.remove('hidden');
+  document.getElementById('practiceCard').classList.add('hidden');
+  showQuestion();
+  goTo('diagnostic');
+}
+
+function showQuestion() {
+  selected = null;
+  const q = diagnostic[index];
+  document.getElementById('qTopic').textContent = q.label;
+  document.getElementById('qCount').textContent = `Questão ${index + 1} de ${diagnostic.length}`;
+  document.getElementById('quizBar').style.width = (index / diagnostic.length * 100) + '%';
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('feedback').innerHTML = '';
+  document.getElementById('nextBtn').disabled = true;
+  document.getElementById('nextBtn').textContent = index === diagnostic.length - 1 ? 'Ver minhas estrelas 🏆' : 'Próxima ➜';
+  document.getElementById('answers').innerHTML = q.opts.map((o, i) =>
+    `<button class="answer" onclick="choose(${i})">${String.fromCharCode(65 + i)}) ${o}</button>`
+  ).join('');
+}
+
+function choose(i) {
+  if (selected !== null) return;
+  selected = i;
+  const q = diagnostic[index], ok = i === q.a;
+  answers.push({ topic: q.topic, correct: ok });
+  document.querySelectorAll('#answers .answer').forEach((b, j) => {
+    b.disabled = true;
+    if (j === q.a) b.classList.add('correct');
+    if (j === i && !ok) b.classList.add('wrong');
+  });
+  document.getElementById('feedback').innerHTML =
+    `<div class="feedback ${ok ? 'ok' : 'no'}"><b>${ok ? 'Você brilhou! 🌟' : 'Quase lá! Vamos aprender juntos 💜'}</b><br>${q.explain}</div>`;
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion() {
+  index++;
+  if (index < diagnostic.length) showQuestion();
+  else showResults();
+}
+
+function showResults() {
+  document.getElementById('quizArea').classList.add('hidden');
+  document.getElementById('quizResult').classList.remove('hidden');
+  const total = answers.filter(a => a.correct).length;
+  const rate = Math.round(total / answers.length * 100);
+  document.getElementById('done').textContent = answers.length;
+  document.getElementById('hits').textContent = total;
+  document.getElementById('rate').textContent = rate + '%';
+  document.getElementById('progressBar').style.width = rate + '%';
+  document.getElementById('progressText').textContent = rate + '% completo';
+  document.getElementById('resultSummary').textContent = `Você acertou ${total} de ${answers.length} questões (${rate}%). Veja o que a Luna preparou:`;
+
+  const counts = {};
+  Object.keys(topicNames).forEach(k => counts[k] = { right: 0, total: 0 });
+  answers.forEach(a => { counts[a.topic].total++; if (a.correct) counts[a.topic].right++; });
+
+  let weak = [];
+  Object.keys(counts).forEach(k => {
+    const c = counts[k], el = document.getElementById(k + 'Status');
+    if (!c.total) { el.textContent = 'Pendente'; el.className = 'pill'; return; }
+    const pct = c.right / c.total;
+    el.textContent = `${c.right}/${c.total} ⭐`;
+    el.className = 'pill ' + (pct === 1 ? 'good' : 'warn');
+    if (pct < 1) weak.push(k);
+  });
+
+  if (!weak.length) {
+    document.getElementById('systemTip').textContent = 'Uau! Você acertou tudinho! Escolha qualquer tema na biblioteca para continuar se divertindo. 🚀';
+    weak = ['geo'];
+  } else {
+    document.getElementById('systemTip').textContent = 'Vamos praticar ' + weak.map(k => topicNames[k]).join(', ') + '! Clique em treinar para ganhar mais estrelas. 🌟';
+  }
+
+  document.getElementById('recommendations').innerHTML = weak.map(k =>
+    `<div class="topic"><span>📘 ${topicNames[k]}</span><button class="small soft" onclick="openTopicPractice('${k}')">Treinar agora</button></div>`
+  ).join('');
+  window.weakTopics = weak;
+  saveAttempt(total, answers.length, rate, weak);
+  document.getElementById('quizBar').style.width = '100%';
+}
+
+function saveAttempt(total, n, rate, weak) {
+  let h = [];
+  try { h = JSON.parse(localStorage.getItem('aprendeHistory') || '[]'); } catch (e) {}
+  h.unshift({ date: new Date().toLocaleDateString('pt-BR'), total, n, rate, weak });
+  localStorage.setItem('aprendeHistory', JSON.stringify(h.slice(0, 6)));
+  renderHistory();
+}
+
+function renderHistory() {
+  let h = [];
+  try { h = JSON.parse(localStorage.getItem('aprendeHistory') || '[]'); } catch (e) {}
+  const el = document.getElementById('historyList');
+  if (!h.length) {
+    el.className = 'empty';
+    el.textContent = 'Ainda não há partidas. Faça seu primeiro desafio! 🌱';
+    return;
+  }
+  el.className = '';
+  el.innerHTML = h.map(x =>
+    `<div class="history-item"><span><b>${x.date}</b><br><span style="color:var(--muted)">${x.total}/${x.n} acertos</span></span><span class="pill ${x.rate >= 70 ? 'good' : 'warn'}">${x.rate}%</span></div>`
+  ).join('');
+}
+
+function startPractice() {
+  openTopicPractice((window.weakTopics || ['basic'])[0]);
+}
+
+function openTopicPractice(topic) {
+  document.getElementById('quizResult').classList.add('hidden');
+  document.getElementById('practiceCard').classList.remove('hidden');
+  practiceTopic = topic || 'basic';
+  practiceIndex = 0;
+  renderTopicTabs();
+  showPractice();
+  goTo('practiceCard');
+}
+
+function renderTopicTabs() {
+  document.getElementById('practiceTopicSwitch').innerHTML = Object.keys(topicNames).map(k =>
+    `<button class="small ${k === practiceTopic ? '' : 'soft'}" onclick="openTopicPractice('${k}')">${topicNames[k]}</button>`
+  ).join('');
+}
+
+function showPractice() {
+  const list = practice[practiceTopic] || practice.basic;
+  const q = list[practiceIndex % list.length];
+  document.getElementById('practiceQuestion').innerHTML =
+    `<span class="pill">${topicNames[practiceTopic]}</span><div class="question">${q[0]}</div><div class="answers">${q[1].map((o, i) =>
+      `<button class="answer" onclick="answerPractice(${i})">${String.fromCharCode(65 + i)}) ${o}</button>`
+    ).join('')}</div>`;
+  document.getElementById('practiceFeedback').innerHTML = '';
+  document.getElementById('practiceNext').classList.add('hidden');
+}
+
+function answerPractice(i) {
+  const list = practice[practiceTopic] || practice.basic;
+  const q = list[practiceIndex % list.length];
+  const ok = i === q[2];
+  document.querySelectorAll('#practiceQuestion .answer').forEach((b, j) => {
+    b.disabled = true;
+    if (j === q[2]) b.classList.add('correct');
+    if (j === i && !ok) b.classList.add('wrong');
+  });
+  document.getElementById('practiceFeedback').innerHTML =
+    `<div class="feedback ${ok ? 'ok' : 'no'}"><b>${ok ? 'Isso aí! Você acertou! ⭐' : 'Boa tentativa! Veja a dica: 💜'}</b><br>${q[3]}</div>`;
+  document.getElementById('practiceNext').classList.remove('hidden');
+}
+
+function nextPractice() {
+  practiceIndex++;
+  showPractice();
+}
+
+/* SISTEMA DE IA DA LUNA (GEMINI + SERVIDOR + TUTOR OFFLINE SEM ERROS) */
+function toggleSettings() {
+  document.getElementById('luna-settings').classList.toggle('hidden');
+}
+document.getElementById('luna-gear').onclick = toggleSettings;
+
+function saveApiKey() {
+  const key = document.getElementById('apiKeyInput').value.trim();
+  localStorage.setItem('geminiApiKey', key);
+  toggleSettings();
+  alert(key ? 'Chave do Gemini salva com sucesso! 🌟' : 'Chave removida. Usando modo tutor interno.');
+}
+
+function offlineMathTutor(msg) {
+  const m = msg.toLowerCase();
+  // Resolve contas simples digitadas pelo aluno (ex: "quanto é 12 * 4" ou "25 + 17")
+  const calc = m.match(/(\d+(?:[.,]\d+)?)\s*([+\-*/x×÷])\s*(\d+(?:[.,]\d+)?)/);
+  if (calc) {
+    const a = parseFloat(calc[1].replace(',', '.'));
+    const op = calc[2];
+    const b = parseFloat(calc[3].replace(',', '.'));
+    let res = 0, nomeOp = '';
+    if (op === '+') { res = a + b; nomeOp = 'soma'; }
+    else if (op === '-') { res = a - b; nomeOp = 'subtração'; }
+    else if (op === '*' || op === 'x' || op === '×') { res = a * b; nomeOp = 'multiplicação'; }
+    else if (op === '/' || op === '÷') {
+      if (b === 0) return 'Ops! Não dá para dividir por zero na matemática! 🙈';
+      res = Number((a / b).toFixed(2)); nomeOp = 'divisão';
+    }
+    return `Vamos fazer essa ${nomeOp} juntos! ✨\n${calc[1]} ${op} ${calc[3]} = ${String(res).replace('.', ',')}! 🎉\nQuer tentar outra conta?`;
+  }
+  if (m.includes('fração') || m.includes('fracao')) {
+    return '🍕 Fração é como dividir uma pizza em fatias iguais!\nO número de baixo (denominador) diz em quantas fatias cortamos, e o de cima (numerador) quantas fatias pegamos.\nExemplo: 1/2 é metade da pizza!';
+  }
+  if (m.includes('porcentagem') || m.includes('%')) {
+    return '💯 Porcentagem significa "por cem"!\nDica mágica: para achar 10% de qualquer número, é só dividir por 10 (ex: 10% de 50 = 5).';
+  }
+  if (m.includes('equação') || m.includes('equacao') || m.includes('valor de x')) {
+    return '🔮 Nas equações, o "x" é um número escondido! Para descobrir quem ele é, deixamos o x sozinho de um lado, passando os outros números para o outro lado com o sinal trocado.';
+  }
+  if (m.includes('geometria') || m.includes('triângulo') || m.includes('quadrado')) {
+    return '📐 Geometria estuda as formas ao nosso redor!\n• Triângulo: 3 lados\n• Quadrado: 4 lados iguais\n• Hexágono: 6 lados';
+  }
+  if (m.includes('exercício') || m.includes('exercicio') || m.includes('desafio')) {
+    return '🎯 Desafio rápido da Luna: Quanto é 6 × 7? (Dica: pense em 6 × 5 = 30 e some mais 12!). Me mande sua resposta!';
+  }
+  return 'Oi! Eu sou a Luna 🌟 Posso te ajudar com contas (ex: "12 × 5"), frações, porcentagem, equações ou te dar um desafio! O que você quer aprender agora?';
+}
+
+(() => {
+  const panel = document.getElementById('luna-panel');
+  const toggle = document.getElementById('luna-toggle');
+  const body = document.getElementById('luna-body');
+  const form = document.getElementById('luna-form');
+  const input = document.getElementById('luna-input');
+  let history = [];
+
+  document.getElementById('apiKeyInput').value = localStorage.getItem('geminiApiKey') || '';
+
+  toggle.onclick = () => {
+    const hidden = panel.style.display === 'none';
+    panel.style.display = hidden ? 'block' : 'none';
+    toggle.textContent = hidden ? '−' : '+';
+  };
+
+  function bubble(text, who) {
+    const d = document.createElement('div');
+    d.className = 'luna-msg ' + (who === 'user' ? 'luna-user' : 'luna-bot');
+    d.textContent = text;
+    body.appendChild(d);
+    body.scrollTop = body.scrollHeight;
+    return d;
+  }
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const message = input.value.trim();
+    if (!message) return;
+    input.value = '';
+    bubble(message, 'user');
+    const wait = bubble('Luna está pensando... ✨', 'bot');
+    document.getElementById('luna-send').disabled = true;
+
+    const apiKey = localStorage.getItem('geminiApiKey') || '';
+
+    try {
+      // 1. Se o usuário colou uma chave do Gemini na engrenagem ⚙️, chama o Gemini direto
+      if (apiKey) {
+        const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            systemInstruction: {
+              parts: [{ text: 'Você é a Luna, uma estrelinha tutora de matemática muito fofa, alegre e paciente para crianças. Responda em português do Brasil de forma curta, lúdica e encorajadora, usando emojis.' }]
+            },
+            contents: [{ role: 'user', parts: [{ text: message }] }]
+          })
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error?.message || 'Erro na chave Gemini');
+        wait.textContent = data.candidates?.[0]?.content?.parts?.[0]?.text || offlineMathTutor(message);
+      }
+      // 2. Se estiver rodando em servidor local com /api/capi, tenta conectar
+      else if (location.protocol !== 'file:') {
+        const r = await fetch('/api/capi', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message, history })
+        });
+        if (!r.ok) throw new Error('Servidor offline');
+        const data = await r.json();
+        wait.textContent = data.answer;
+        history.push({ role: 'user', text: message }, { role: 'model', text: data.answer });
+        history = history.slice(-8);
+      }
+      // 3. Caso contrário, usa o Tutor Inteligente Offline sem mostrar mensagem de erro!
+      else {
+        await new Promise(r => setTimeout(r, 400));
+        wait.textContent = offlineMathTutor(message);
+      }
+    } catch (err) {
+      // Se o servidor /api/capi falhar ou não existir, responde com o tutor offline em vez de quebrar!
+      wait.textContent = offlineMathTutor(message);
+    } finally {
+      document.getElementById('luna-send').disabled = false;
+      input.focus();
+    }
+  });
+})();
+
+loadProfile();
+</script>
+</body>
+</html>
